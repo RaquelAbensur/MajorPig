@@ -1,65 +1,58 @@
-import java.util.Scanner;
+package majorpig_user;
 
-public class Teste {
+    import java.util.Scanner;
+
+public class Usuario {
     
     String emailAdress;
-    static int idUser = 1;
+    int idUser = 1;
     String senha;
     int nivel;
-    int conta = 1;
+    static int conta = 1;
     //String nickname;
     byte idade;
-    private String aNickname;
 
-    public Teste (String aEmail, String aSenha){
+    public Usuario (String aEmail, String aSenha){
 
-        this.idUser = idUser++;
+        this.idUser = conta++;
         this.emailAdress = aEmail;
         this.senha = aSenha;
         //this.nickname = aNickname;
 
-        System.out.printf("A conta %s foi criada com sucesso \n", aNickname);
+        System.out.printf("A conta %s foi criada com sucesso \n", aEmail);
         System.out.printf("Entre em sua conta ou crie uma nova");
     
     }
-
     public static void login(String bEmail, String bSenha){
-        for (int i =1; 1 <= idUser; i++){
+        for (int i = 1; i <= conta; i++){
             System.out.printf("Digite 'logar' para entrar em sua conta ou crie uma nova digitando 'criar': ");
         }
     }
-    
+    public static void main(String[] args) {
     do{
         System.out.println("Entrar \"logar\", \"criar\", or \"sair\"");
-        Scanner in = new Scanner(System.in);
-        Object input = in.nextLine();
-        if (input.equals("logar"))
-        {
-            System.out.println("Insira seu email: ");
-            String bEmail = in.nextLine();
-            System.out.println("Insira sua senha: ");
-            String bSenha = in.nextLine();
-            int a = idUser;
-            login(bEmail, bSenha);
-            System.out.println("Login feito com sucesso!");
-            input = in.nextLine();
-        }
-        else if (input.equals("criar"))
-        {
-            System.out.println("Insira um email valido: ");
-            String aEmail = in.nextLine();
-            System.out.println("Insira uma senha: ");
-            String aSenha = in.nextLine();
-            Teste conta = new Teste (aSenha, aEmail);
-        }
-        else if (input.equals("sair"))
-        {
-            break;
-        }
-        else
-        {
-            System.out.println("Opção errada, escolha logar ou criar!");
+        try (Scanner in = new Scanner(System.in)) {
+            Object input = in.nextLine();
+            if (input.equals("logar")){
+                System.out.println("Insira seu email: ");
+                String bEmail = in.nextLine();
+                System.out.println("Insira sua senha: ");
+                String bSenha = in.nextLine();
+                login(bEmail, bSenha);
+                System.out.println("Login feito com sucesso!");
                 input = in.nextLine();
+            }else if (input.equals("criar")){
+                System.out.println("Insira um email valido: ");
+                String aEmail = in.nextLine();
+                System.out.println("Insira uma senha: ");
+                String aSenha = in.nextLine();
+                new Usuario (aSenha, aEmail);
+            }else if (input.equals("sair")){
+                break;
+            }else{
+                System.out.println("Opção errada, escolha logar ou criar!");
+                    input = in.nextLine();}
         }
     }while (true);
+}
 }
