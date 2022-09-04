@@ -20,7 +20,7 @@ public class User {
             System.out.println("senha> ");
             String senha = in.nextLine();
   
-            if(login.equals("kiwi") && senha.equals("1234567")){
+            if(login.equals("kiwi") && senha.equals("bymS2")){
                 System.out.printf("Usuário %s logado com sucesso.", login);
             if(login.equals("lily") && senha.equals("7654321")){
                 System.out.printf("Usuário %s logado com sucesso.", login);

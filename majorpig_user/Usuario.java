@@ -9,7 +9,6 @@ public class Usuario {
     String senha;
     int nivel;
     static int conta = 1;
-    //String nickname;
     byte idade;
 
     public Usuario (String aEmail, String aSenha){
@@ -17,13 +16,13 @@ public class Usuario {
         this.idUser = conta++;
         this.emailAdress = aEmail;
         this.senha = aSenha;
-        //this.nickname = aNickname;
+        conta++;
 
         System.out.printf("A conta %s foi criada com sucesso \n", aEmail);
         System.out.printf("Entre em sua conta ou crie uma nova");
     
     }
-    public static void login(String bEmail, String bSenha){
+    public static void logar(String bEmail, String bSenha){
         for (int i = 1; i <= conta; i++){
             System.out.printf("Digite 'logar' para entrar em sua conta ou crie uma nova digitando 'criar': ");
         }
@@ -38,7 +37,8 @@ public class Usuario {
                 String bEmail = in.nextLine();
                 System.out.println("Insira sua senha: ");
                 String bSenha = in.nextLine();
-                login(bEmail, bSenha);
+                //int a = conta;
+                logar(bEmail, bSenha);
                 System.out.println("Login feito com sucesso!");
                 input = in.nextLine();
             }else if (input.equals("criar")){
@@ -46,7 +46,7 @@ public class Usuario {
                 String aEmail = in.nextLine();
                 System.out.println("Insira uma senha: ");
                 String aSenha = in.nextLine();
-                new Usuario (aSenha, aEmail);
+                new Usuario (aEmail, aSenha);
             }else if (input.equals("sair")){
                 break;
             }else{
