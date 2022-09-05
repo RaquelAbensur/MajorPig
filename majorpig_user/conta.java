@@ -1,6 +1,6 @@
 package majorpig_user;
 
-public class Conta {
+public class conta {
     int numero;
     double saldo;
     int agencia;
@@ -14,7 +14,7 @@ public class Conta {
         return saldo;
     }
 
-    public Conta (double valor) {
+    public conta (double valor) {
         this.saldo = valor;
         System.out.println("Criando uma instancia da conta...");
     }

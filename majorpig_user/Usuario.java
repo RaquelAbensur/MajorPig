@@ -4,12 +4,12 @@ package majorpig_user;
 
 public class Usuario {
     
-    String emailAdress;
-    int idUser = 1;
-    String senha;
-    int nivel;
+    public String emailAdress;
+    public int idUser = 1;
+    public String senha;
+    public int nivel;
     static int conta = 1;
-    byte idade;
+    public byte idade;
 
     public Usuario (String aEmail, String aSenha){
 
@@ -30,28 +30,29 @@ public class Usuario {
     public static void main(String[] args) {
     do{
         System.out.println("Entrar \"logar\", \"criar\", or \"sair\"");
-        try (Scanner in = new Scanner(System.in)) {
-            Object input = in.nextLine();
+        try (Scanner sc = new Scanner(System.in)) {
+            Object input = sc.nextLine();
             if (input.equals("logar")){
                 System.out.println("Insira seu email: ");
-                String bEmail = in.nextLine();
+                String bEmail = sc.nextLine();
                 System.out.println("Insira sua senha: ");
-                String bSenha = in.nextLine();
+                String bSenha = sc.nextLine();
                 //int a = conta;
                 logar(bEmail, bSenha);
                 System.out.println("Login feito com sucesso!");
-                input = in.nextLine();
+                input = sc.nextLine();
             }else if (input.equals("criar")){
                 System.out.println("Insira um email valido: ");
-                String aEmail = in.nextLine();
+                String aEmail = sc.nextLine();
                 System.out.println("Insira uma senha: ");
-                String aSenha = in.nextLine();
+                String aSenha = sc.nextLine();
                 new Usuario (aEmail, aSenha);
             }else if (input.equals("sair")){
                 break;
             }else{
                 System.out.println("Opção errada, escolha logar ou criar!");
-                    input = in.nextLine();}
+                    input = sc.nextLine();}
+                    sc.close();
         }
     }while (true);
 }
