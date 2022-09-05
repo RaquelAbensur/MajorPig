@@ -10,7 +10,7 @@ public class Planos {
     double planoB = 40;
     double planoC = 50;
     private int nivel;
-        
+    
     public void aprimorar(String escolha){
 
         System.out.printf("Digite o plano da sua escolha \"planoA\", \"planoB\" ou \"planoC\"");
